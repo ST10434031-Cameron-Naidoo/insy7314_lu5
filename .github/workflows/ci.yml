@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: API
-        
+        working-directory: api
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
