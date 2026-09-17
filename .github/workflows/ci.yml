@@ -10,24 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: api
-  
-  steps:
-    - name: Checkout repository
-      uses: actions/Checkout@v4
+        working-directory: API
+        
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.jobs
-      uses: actions/Checkout@v4
-      with:
-        node-version: 22
-        cache: npm
-        cache-dependency-path: api/package-lock.json
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: api/package-lock.json
 
-    - name: Install API dependencies
-      run: npm ci
+      - name: Install API dependencies
+        run: npm ci
 
-    - name: Run API linting
-      run: npm run lint
-    
-    - name: Build API Docker image
-      run: docker build -t secureapi-api .
+      - name: Run API linting
+        run: npm run lint
+      
+      - name: Build API Docker image
+        run: docker build -t secureapi-api .
